@@ -1,0 +1,169 @@
+/* Container for chatbot popup */
+.chatbot-popup {
+    position: fixed;
+    bottom: 90px; /* leave space above button */
+    right: 20px;
+    width: 320px;
+    max-height: 420px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    z-index: 1001;
+  }
+  
+  /* Header bar */
+  .chatbot-header {
+    background: rgba(80, 65, 188, 0.9) !important; /* dark purple */
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    user-select: none;
+  }
+  
+  /* Close button in header */
+  .chatbot-header button {
+    background: transparent;
+    border: none;
+    color: #5041BC !important;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 6px;
+    transition: color 0.3s ease;
+  }
+  
+  .chatbot-header button:hover {
+    color: #e5e4fc; /* lighter purple */
+  }
+  
+  /* Messages area */
+  .chatbot-messages {
+    flex-grow: 1;
+    padding: 16px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
+    background: transparent;
+  }
+  
+  /* Scrollbar styling for WebKit */
+  .chatbot-messages::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chatbot-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+  
+  /* Each message */
+  .chatbot-message {
+    max-width: 80%;
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    word-wrap: break-word;
+  }
+  
+  /* Bot messages (left aligned, lighter purple bg) */
+  .chatbot-message.bot {
+    background-color: rgba(80, 65, 188, 0.8);
+    align-self: flex-start;
+    color: #fff;
+  }
+  
+  /* User messages (right aligned, white bg, purple text) */
+  .chatbot-message.user {
+    background-color: #fff;
+    color: #5041BC !important;
+    align-self: flex-end;
+  }
+  
+  /* Input area */
+  .chatbot-input-area {
+    display: flex;
+    padding: 12px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Text input */
+  .chatbot-input-area input {
+    flex-grow: 1;
+    border: none;
+    border-radius: 16px;
+    padding: 8px 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .chatbot-input-area input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .chatbot-input-area input:focus {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Send button */
+  .chatbot-input-area button {
+    margin-left: 10px;
+    background-color: #5041BC !important;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  .chatbot-input-area button:hover {
+    background-color: #e5e4fc;
+    color: #5041BC !important;
+  }
+
+  .chatbot-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #5041BC !important;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(80, 65, 188, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Nunito', sans-serif;
+    z-index: 1000;
+  }
+  
+  .chatbot-toggle-btn:hover {
+    background-color: #e5e4fc;
+    color: #5041BC !important;
+    box-shadow: 0 8px 24px rgba(229, 228, 252, 0.8);
+  }
+  
