@@ -1,16 +1,16 @@
-// routes/segmentation.js
+
 const express = require('express');
 const Segmentation = require('../models/Segmentation');
 const Customer = require('../models/Customer');
-const FilterMap = require('../models/FilterMap');  // Assuming you have a FilterMap model
+const FilterMap = require('../models/FilterMap');  
 const router = express.Router();
 
-// POST route to create a new segment and automatically create filter_map entries
+
 router.post('/segments', async (req, res) => {
-    // Inside your API call in Segmentation.jsx
+    
 fetch("/api/segments")
   .then((response) => {
-    // Log the response to check if it is JSON or HTML
+    
     console.log("Response:", response);
 
     if (response.ok) {
@@ -33,7 +33,7 @@ fetch("/api/segments")
       return res.status(400).json({ success: false, message: 'Segment name and conditions are required' });
     }
 
-    // Build MongoDB query from conditions
+    
     const filters = [];
 
     for (let cond of conditions) {
@@ -75,15 +75,15 @@ fetch("/api/segments")
       mongoQuery = combined;
     }
 
-    // Find matching customers based on the query
+    
     const matchingCustomers = await Customer.find(mongoQuery);
 
-    // If no customers are found, respond accordingly
+    
     if (matchingCustomers.length === 0) {
       return res.status(400).json({ success: false, message: 'No customers found for this segment' });
     }
 
-    // Save the segment
+    
     const newSegmentation = new Segmentation({
       name,
       conditions,
@@ -91,16 +91,16 @@ fetch("/api/segments")
     });
     await newSegmentation.save();
 
-    // Create filter_map entries for each matching customer
+    
     const filterMapEntries = matchingCustomers.map((customer) => {
       return {
-        phone_number: customer.phone,  // Assuming 'phone_number' exists in the Customer schema
+        phone_number: customer.phone,  
         segment_id: newSegmentation._id,
         customer_id: customer.customer_id,
       };
     });
 
-    // Insert filter_map entries in bulk
+    
     await FilterMap.insertMany(filterMapEntries);
 
     res.status(201).json({
@@ -155,15 +155,15 @@ router.post('/segments/preview', async (req, res) => {
       filters.push({ filter, logicalOperator: cond.logicalOperator });
     }
 
-    // Combine using logical operators
+    
     let mongoQuery = {};
     if (filters.length === 1) {
       mongoQuery = filters[0].filter;
     } else {
-      // Chain the filters based on AND/OR logic
+      
       let combined = filters[0].filter;
       for (let i = 1; i < filters.length; i++) {
-        const logic = filters[i - 1].logicalOperator; // logic applies BETWEEN [i-1] and [i]
+        const logic = filters[i - 1].logicalOperator; 
         if (logic === 'OR') {
           combined = { $or: [combined, filters[i].filter] };
         } else {
@@ -181,24 +181,24 @@ router.post('/segments/preview', async (req, res) => {
     res.status(500).json({ success: false, message: 'Error previewing audience size', error: error.message || error });
   }
 });
-// DELETE route to delete a segment by ID and its filter_map entries
+
 router.delete('/segments/:id', async (req, res) => {
   try {
     const segmentId = req.params.id;
 
-    // Validate segment ID
+    
     if (!segmentId) {
       return res.status(400).json({ success: false, message: 'Segment ID is required' });
     }
 
-    // Delete the segment
+    
     const deletedSegment = await Segmentation.findByIdAndDelete(segmentId);
 
     if (!deletedSegment) {
       return res.status(404).json({ success: false, message: 'Segment not found' });
     }
 
-    // Delete related filter_map entries
+    
     await FilterMap.deleteMany({ segment_id: segmentId });
 
     res.status(200).json({ success: true, message: 'Segment and related filter_map entries deleted successfully' });

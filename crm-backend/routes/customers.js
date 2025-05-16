@@ -1,9 +1,9 @@
-// routes/customers.js
+
 const express = require('express');
 const Customer = require('../models/Customer');
 const router = express.Router();
 
-// POST route to store customer data
+
 router.post('/customers', async (req, res) => {
   try {
     const customer = new Customer(req.body);
@@ -14,7 +14,7 @@ router.post('/customers', async (req, res) => {
   }
 });
 
-// GET route to retrieve all customers
+
 router.get('/customers', async (req, res) => {
   try {
     const customers = await Customer.find();

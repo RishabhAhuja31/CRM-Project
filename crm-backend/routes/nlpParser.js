@@ -55,7 +55,7 @@ If time is mentioned (like "not shopped in 6 months"), return a date 6 months ag
     } catch (err) {
       return res.status(400).json({ success: false, message: 'Invalid JSON format returned by AI' });
     }
-// Normalize logicalOperator for all but the first condition
+
 conditions = conditions.map((cond, idx) => {
     if (idx === 0) return cond;
     if (!cond.logicalOperator) {

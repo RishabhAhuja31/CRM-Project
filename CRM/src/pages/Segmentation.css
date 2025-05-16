@@ -1,6 +1,6 @@
-/* Segmentation.css */
 
-/* Import Nunito font */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
 .segmentation-container {
@@ -120,7 +120,7 @@ button:hover {
 }
 .segment-name input::placeholder {
   color: white;
-  opacity: 1; /* To ensure the color is fully opaque */
+  opacity: 1; 
 }
 
 .actions {
@@ -200,8 +200,8 @@ button:hover {
   margin-bottom: 0.3rem;
 }
 select {
-  color: #000; /* black text */
-  background-color: #fff; /* white background */
+  color: #000; 
+  background-color: #fff; 
 }
 
 option {

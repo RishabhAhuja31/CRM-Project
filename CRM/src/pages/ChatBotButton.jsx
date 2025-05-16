@@ -9,7 +9,7 @@ function ChatBotButton() {
   const [input, setInput] = useState('');
   const [conditions, setConditions] = useState([]);
   const [segmentName, setSegmentName] = useState('');
-  const [step, setStep] = useState(1); // 1=waiting name, 2=waiting conditions, 3=ready to save
+  const [step, setStep] = useState(1); 
 
   const toggleOpen = () => setOpen(!open);
 
@@ -21,7 +21,7 @@ function ChatBotButton() {
     setInput('');
 
     if (step === 1) {
-      // Step 1: user enters segment name
+      
       setSegmentName(userInput);
       setMessages((prev) => [...prev, { from: 'bot', text: `Tell me the conditions.` }]);
       setStep(2);
@@ -29,12 +29,12 @@ function ChatBotButton() {
     }
 
     if (step === 2) {
-      // Step 2: user enters conditions to parse and preview audience
+      
       setMessages((prev) => [...prev, { from: 'bot', text: 'Parsing conditions...' }]);
       const loadingIndex = messages.length + 1;
 
       try {
-        // Call NLP parse API
+        
         const nlpResponse = await fetch('http://localhost:5000/api/segments/nlp-parse', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -47,7 +47,7 @@ function ChatBotButton() {
         if (nlpData.success && nlpData.conditions) {
           setConditions(nlpData.conditions);
 
-          // Call audience preview API
+          
           const previewResponse = await fetch('http://localhost:5000/api/segments/preview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -85,7 +85,7 @@ function ChatBotButton() {
     }
 
     if (step === 3) {
-      // Step 3: waiting for "Save this segment" command
+      
       try {
         const response = await fetch('http://localhost:5000/api/segments', {
           method: 'POST',
@@ -99,11 +99,11 @@ function ChatBotButton() {
           setSegmentName('');
           setConditions([]);
     
-          // Check if on segmentation page, then reload
+          
           if (window.location.pathname === '/segmentations') {
             setTimeout(() => {
               window.location.reload();
-            }, 1000); // Delay a bit so user sees success message
+            }, 1000); 
           }
         } else {
           setMessages((prev) => [...prev, { from: 'bot', text: 'Error saving segment.' }]);

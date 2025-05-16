@@ -65,7 +65,7 @@ db.once('open', async () => {
 
       customers.push(customer);
 
-      // Order generation based on visits
+      
       const orderCount = isRepeat ? faker.number.int({ min: 2, max: 5 }) : 1;
 
       for (let j = 0; j < orderCount; j++) {

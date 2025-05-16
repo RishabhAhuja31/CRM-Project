@@ -1,4 +1,4 @@
-// models/FilterMap.js
+
 const mongoose = require('mongoose');
 
 const filterMapSchema = new mongoose.Schema({

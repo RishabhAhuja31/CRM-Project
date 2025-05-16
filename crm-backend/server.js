@@ -14,7 +14,7 @@ const nlpParserRoutes = require('./routes/nlpParser');
 
 const app = express();
 
-// Middleware setup
+
 app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true,
@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 
 
-// Your other routes...
+
 app.use('/api', customerRoutes);
 app.use('/api', orderRoutes);
 app.use('/api', segmentationRoutes);
@@ -31,7 +31,7 @@ app.use('/api', campaignsRoutes);
 app.use('/api/campaigns', campaignsRoutes);
 app.use('/api', nlpParserRoutes);
 
-// MongoDB connection
+
 mongoose.connect('mongodb://0.0.0.0:27017/miniCRM')
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log('MongoDB connection error:', err));

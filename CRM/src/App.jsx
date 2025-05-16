@@ -16,8 +16,8 @@ function App() {
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
           <SignInButton />
         </div>
-        {/* Or use <RedirectToSignIn /> to automatically redirect */}
-        {/* <RedirectToSignIn /> */}
+        {}
+        {}
       </SignedOut>
 
       <SignedIn>

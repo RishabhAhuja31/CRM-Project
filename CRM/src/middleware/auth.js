@@ -1,4 +1,4 @@
-// middleware/auth.js
+
 import { clerkClient, verifyToken } from '@clerk/backend';
 
 export async function authenticateRequest(req, res, next) {
@@ -13,7 +13,7 @@ export async function authenticateRequest(req, res, next) {
   try {
     const payload = await verifyToken(token, { secretKey: process.env.CLERK_SECRET_KEY });
 
-    // Optional: fetch full user details
+    
     const user = await clerkClient.users.getUser(payload.sub);
     req.user = user;
 

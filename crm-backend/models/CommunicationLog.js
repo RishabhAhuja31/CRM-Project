@@ -1,11 +1,11 @@
-// models/CommunicationLog.js
+
 const mongoose = require('mongoose');
 
 const communicationLogSchema = new mongoose.Schema({
     merchant_id: { type: String, required: true },
-    communication_id: { type: String, required: true, index: true }, // ✅ Now indexed
+    communication_id: { type: String, required: true, index: true }, 
     communication_type: { type: Number, enum: 2 },
-    customer_id: { type: String, required: true }, // Changed from ObjectId to String
+    customer_id: { type: String, required: true }, 
     variation_id: { type: String },
     cohort_id: { type: String },
     split_group: { type: Number, enum: [1, 2, 3] },
@@ -23,7 +23,7 @@ const communicationLogSchema = new mongoose.Schema({
     vendor_id: { type: mongoose.Types.ObjectId, index: true },
     sender_id: { type: String },
     delivery_reason: { type: String },
-    campaign_name: { type: String }, // ✅ Add this line
+    campaign_name: { type: String }, 
     created_on: { type: Date, default: Date.now }
 });
 

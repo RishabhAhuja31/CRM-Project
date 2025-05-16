@@ -21,11 +21,11 @@ router.post('/campaigns/send', async (req, res) => {
       return res.status(400).json({ message: 'Invalid scheduleTime format' });
     }
 
-    // 1. Fetch the segment definition
+    
     const segment = await Segmentation.findById(selectedSegment);
     if (!segment) return res.status(404).json({ message: 'Segment not found.' });
 
-    // 2. Fetch the customers for the segment (you should already have the customer list)
+    
     if (!mongoose.Types.ObjectId.isValid(selectedSegment)) {
       return res.status(400).json({ message: 'Invalid segment ID format' });
     }
@@ -39,17 +39,17 @@ if (!filterMapEntries || filterMapEntries.length === 0) {
   return res.status(400).json({ message: 'No customers found in this segment.' });
 }
 
-// Get unique customer IDs
+
 const customerIds = filterMapEntries.map(entry => entry.customer_id);
 
-// Fetch full customer data
+
 const customers = await Customer.find({ customer_id: { $in: customerIds } });
 console.log("Sample customerId from FilterMap:", customerIds[0]);
 
 const byId = await Customer.findOne({ customer_id: customerIds[0] });
 const byCustomerId = await Customer.findOne({ customer_id: customerIds[0] });
 
-  // Assuming customers are stored directly in the segment
+  
 
     if (!customers || customers.length === 0) {
       return res.status(400).json({ message: 'No customers found in this segment.' });
@@ -57,12 +57,12 @@ const byCustomerId = await Customer.findOne({ customer_id: customerIds[0] });
 
 
 
-    // 3. Filter customers based on segment conditions
+    
     const filteredCustomers = customers;
     
 
 
-    // Proceed with logging and preparing the campaign (send campaign, etc.)
+    
     const communicationLogs = filteredCustomers.map((customer) => {
 
       const personalizedMessage = customMessage.replace('{name}', customer.customer_name);
@@ -114,7 +114,7 @@ const byCustomerId = await Customer.findOne({ customer_id: customerIds[0] });
           }
         },
         {
-          $sort: { scheduled_time: 1 }  // Sort by scheduled_time ascending
+          $sort: { scheduled_time: 1 }  
         }
       ]);
   

@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(135deg, #5041BC, #736EFF); /* ✅ Gradient here */
+  background: linear-gradient(135deg, #5041BC, #736EFF); 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,7 +15,7 @@
 }
 .no-scroll {
   overflow: hidden !important;
-  height: 100vh; /* Optional: fix height so content fits */
+  height: 100vh; 
 }
 
 a {
@@ -30,10 +30,10 @@ a:hover {
 body {
   margin: 0;
 
-  justify-content: center;   /* Center horizontally */
+  justify-content: center;   
   align-items: center;
   height: 100vh;
-  width: 100vw;              /* ✅ Add this line */
+  width: 100vw;              
   font-family: 'Nunito', sans-serif; 
   
 }

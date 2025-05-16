@@ -1,9 +1,9 @@
-// routes/orders.js
+
 const express = require('express');
 const Order = require('../models/Order');
 const router = express.Router();
 
-// POST route to store order data
+
 router.post('/orders', async (req, res) => {
   try {
     const order = new Order(req.body);
@@ -14,7 +14,7 @@ router.post('/orders', async (req, res) => {
   }
 });
 
-// GET route to retrieve all orders
+
 router.get('/orders', async (req, res) => {
   try {
     const orders = await Order.find();

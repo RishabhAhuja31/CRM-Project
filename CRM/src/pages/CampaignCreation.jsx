@@ -92,7 +92,7 @@ const CampaignCreation = () => {
       selectedSegment,
       customMessage,
       scheduleTime,
-      campaignName,  // 👈 Include it here
+      campaignName,  
       
     };
     

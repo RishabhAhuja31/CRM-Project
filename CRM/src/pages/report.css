@@ -1,23 +1,23 @@
-/* CampaignReport.css */
+
 
 .container {
-  max-width: 72rem;        /* max-w-6xl */
+  max-width: 72rem;        
   margin: 2.5rem auto;
-  /* top 2.5rem, right 0, bottom 2.5rem, left 2.5rem */
-  padding: 2rem;           /* p-8 */
+  
+  padding: 2rem;           
   background-color: white;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;     /* rounded-xl */
-  border: 1px solid #d1d5db; /* border-gray-300 */
-  box-sizing: border-box;  /* always good */
+  border-radius: 1rem;     
+  border: 1px solid #d1d5db; 
+  box-sizing: border-box;  
 }
 
 
 .title {
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 700; /* font-bold */
-  color: #1f2937; /* text-gray-800 */
-  margin-bottom: 1.5rem; /* mb-6 */
+  font-size: 1.875rem; 
+  font-weight: 700; 
+  color: #1f2937; 
+  margin-bottom: 1.5rem; 
 }
 
 .tableWrapper {
@@ -30,21 +30,21 @@
 }
 
 .theadRow {
-  background-color: #e5e7eb; /* bg-gray-200 */
-  color: #4b5563; /* text-gray-700 */
-  font-size: 0.875rem; /* text-sm */
+  background-color: #e5e7eb; 
+  color: #4b5563; 
+  font-size: 0.875rem; 
   text-transform: uppercase;
 }
 
 .th, .td {
-  border: 1px solid #9ca3af; /* border-gray-400 / border-gray-300 */
-  padding: 0.75rem 1rem; /* px-4 py-3 */
+  border: 1px solid #9ca3af; 
+  padding: 0.75rem 1rem; 
   text-align: center;
   vertical-align: middle;
 }
 
 .thCampaignName {
-  text-align: center; /* override original left */
+  text-align: center; 
 }
 
 .tbodyRowEven {
@@ -52,40 +52,40 @@
 }
 
 .tbodyRowOdd {
-  background-color: #f9fafb; /* bg-gray-50 */
+  background-color: #f9fafb; 
 }
 
 .tbodyRowHover:hover {
-  background-color: #eff6ff; /* hover:bg-blue-50 */
+  background-color: #eff6ff; 
   transition: background-color 0.15s ease-in-out;
 }
 
 .success {
-  color: #047857; /* text-green-700 */
-  font-weight: 500; /* font-medium */
+  color: #047857; 
+  font-weight: 500; 
 }
 
 .failed {
-  color: #b91c1c; /* text-red-600 */
+  color: #b91c1c; 
   font-weight: 500;
 }
 
 .revenue {
-  color: #4f46e5; /* text-indigo-700 */
-  font-weight: 700; /* font-semibold */
+  color: #4f46e5; 
+  font-weight: 700; 
 }
 
 .fontBold {
   font-weight: 700;
-  color: #1f2937; /* text-gray-800 */
+  color: #1f2937; 
 }
 
 .noDataCell {
   text-align: center;
   padding: 1rem 0;
-  color: #6b7280; /* text-gray-500 */
+  color: #6b7280; 
   border: 1px solid #d1d5db;
 }
 .attributed {
-  color: #374151; /* e.g. a medium gray */
+  color: #374151; 
 }

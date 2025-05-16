@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-// MongoDB connection URL (change with your database URL)
-const mongoURI = 'mongodb://localhost:27017/miniCRM'; // Local MongoDB URL or your remote DB URL
+
+const mongoURI = 'mongodb://localhost:27017/miniCRM'; 
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,

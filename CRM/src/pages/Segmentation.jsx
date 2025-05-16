@@ -10,7 +10,7 @@ function Segmentation() {
   const [segmentName, setSegmentName] = useState('');
 const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
 
-  // Fetch all segments
+  
   const fetchSegments = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/segments');
@@ -37,7 +37,7 @@ const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
   
       if (data.success) {
         alert('Segment deleted successfully');
-        fetchSegments(); // Refresh the list after deletion
+        fetchSegments(); 
       } else {
         alert(`Error deleting segment: ${data.message}`);
       }
@@ -50,7 +50,7 @@ const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
     fetchSegments();
   }, []);
 
-  // Handle adding new condition
+  
   const handleAddCondition = () => {
     const newCondition = {
       id: conditions.length + 1,
@@ -61,7 +61,7 @@ const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
     setConditions([...conditions, newCondition]);
   };
 
-  // Handle removing a condition (at least one condition must remain)
+  
   const handleRemoveCondition = (id) => {
     if (conditions.length === 1) {
       alert('At least one condition is required.');
@@ -70,7 +70,7 @@ const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
     setConditions(conditions.filter((condition) => condition.id !== id));
   };
 
-  // Handle changes to the condition fields
+  
   const handleChange = (id, field, value) => {
     setConditions(
       conditions.map((condition) =>
@@ -79,7 +79,7 @@ const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
     );
   };
 
-  // Handle previewing the audience size based on the conditions
+  
   const handlePreview = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/segments/preview', {
@@ -100,7 +100,7 @@ const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
     }
   };
 
-  // Handle submitting the segment for saving
+  
   const handleSubmit = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/segments', {
@@ -115,7 +115,7 @@ const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
       if (data.success) {
         alert('Segment saved successfully!');
         setSegmentName('');
-        fetchSegments(); // Refresh the segments list
+        fetchSegments(); 
       } else {
         alert('Error saving segment');
       }
@@ -214,7 +214,7 @@ const [tooltipVisibleId, setTooltipVisibleId] = useState(null);
         i
       </button>
 
-      {/* Delete button next to the info button */}
+      {}
       <button
         className="delete-button"
         title="Delete Segment"

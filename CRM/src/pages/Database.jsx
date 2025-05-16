@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// Load Nunito from Google Fonts
+
 const fontLink = document.createElement("link");
 fontLink.href = "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap";
 fontLink.rel = "stylesheet";
@@ -48,7 +48,7 @@ function Database() {
 
     fetchData();
     return () => {
-      // Remove class on cleanup (when leaving page)
+      
       document.body.classList.remove('no-scroll');
     }; 
   }, []);
